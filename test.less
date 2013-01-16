@@ -1,0 +1,35 @@
+/* Mixin */
+.transition (@prop: all, @time: 1s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+  
+/* Implementation */
+#somediv {
+    .transition(all, 0.5s, ease-in);
+}
+
+.border-radius (@radius:3px) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    zoom:1;
+}
+
+.clear{
+    *zoom : 1;
+    &:after{
+        content: '\0020';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+  
+#somediv:hover {
+    opacity: 0;
+    .border-radius(5px);
+}
